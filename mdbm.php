@@ -168,12 +168,14 @@ foreach($result as $row)
 				if (!$dbh->query($stmt))
 				{
 					$query_err = $dbh->errorInfo();
-				    echo ' | Query: Error - '.$query_err[2];
+				    echo ' | <span style="color:#FFFFFF;background-color:#A60000;">
+				    &nbsp;&gt;&gt; Query: Error - '.$query_err[2].'&nbsp;</span>';
 				    ++$total_err;
 				}
 				else
 				{
-					echo ' | Query: OK';
+					echo ' | <span style="color:#FFFFFF;background-color:#018100;">
+					&nbsp;&gt;&gt; Query: OK&nbsp;</span>';
 				}
 			}
 			echo '<br />';
