@@ -1,8 +1,7 @@
 # Mass Database Modifier (MDBM)
 **Run SQL statements on multiple databases!**
-MDBM is a very handy tool if you need to modify
-multiple databases all at once. It's a huge help
-and saves a lot of time.
+
+Mass Database Modifier (MDBM) is a very handy tool if you need to modify multiple databases all at once. It's a huge help and saves a lot of time.
 
 ## Requirements
 - PHP5 with PDO extension installed and enabled
@@ -17,13 +16,14 @@ and saves a lot of time.
 
 ## More Information
 MDBM is created by: Dr. Balazs Zatik
-You can contact me at: zatikbalazs@gmail.com
 
-This project is located at:
-https://github.com/zatikbalazs/mass-database-modifier.git
+You can contact me at: zatikbalazs at gmail dot com
+
+This project is located at: https://github.com/zatikbalazs/mass-database-modifier.git
+
 Feel free to share and contribute.
 
 ## License
 **This software is 100% free and open source.**
-MDBM is published under The MIT License.
-See the `LICENSE` file for more details.
+
+MDBM is published under The MIT License. See the `LICENSE` file for more details.
