@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-define('VERSION', '0.2.2');
+define('VERSION', '0.2.3');
 /*
 =============================
 Mass Database Modifier (MDBM)
@@ -225,4 +225,7 @@ else
 	echo '<br /><br />';
 	echo '<a href="mdbm.php">Go Back</a>';
 	echo '<br /><br />';
+	echo '<span style="color:#FFFFFF;background-color:#000000;">
+	&nbsp;If you are finished, please delete <span style="font-style:italic;">mdbm.php</span>
+	from the server.&nbsp;</span>';
 }
