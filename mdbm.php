@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-define('VERSION', '0.2.3');
+define('VERSION', '0.2.4');
 /*
 =============================
 Mass Database Modifier (MDBM)
@@ -12,6 +12,7 @@ multiple databases all at once. It's a huge help
 and saves a lot of time.
 
 Requirements:
+-------------
 - PHP5 with PDO extension installed and enabled
 
 Installation & Usage:
@@ -23,10 +24,20 @@ Installation & Usage:
 5. Run the file from your web browser.
 6. When finished, delete the file from the server.
 
+More Information:
+-----------------
 MDBM is created by: Dr. Balazs Zatik
-You can contact me at: zatikbalazs@gmail.com
+You can contact me at: zatikbalazs at gmail dot com
 
+This project is located at:
+https://github.com/zatikbalazs/mass-database-modifier.git
+Feel free to share and contribute.
+
+License:
+--------
 This software is 100% free and open source.
+MDBM is published under The MIT License.
+See the LICENSE file for more details.
 */
 
 
@@ -114,8 +125,8 @@ else
 	die();
 }
 
-// Your Statement
-echo '<h3>Your Statement:</h3>';
+// Your Statement(s)
+echo '<h3>Your Statement(s):</h3>';
 if (isset($stmt))
 {
 	if (trim($stmt) === '')
