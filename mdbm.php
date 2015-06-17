@@ -69,7 +69,7 @@ $ignored = array(
 );
 
 // 4/4. Statement(s) to Be Executed on All Selected DBs
-$stmt = '
+$stmt = "
 	CREATE TABLE People
 	(
 	PersonID int,
@@ -78,12 +78,13 @@ $stmt = '
 	Address varchar(255),
 	City varchar(255)
 	);
-';
+";
 /*
-IMPORTANT INFO!
-- The statement works with or without ticks (`) as well
-- DON'T USE quotes ('), double quotes (") or delimiters
-- Multiple statements can be entered, separated by (;)
+PLEASE NOTE:
+------------
+- Backticks (`) and single quotes (') are allowed
+- Double quotes (") and delimiters are NOT allowed
+- Multiple statements should be separated by a (;)
 */
 
 // ----------------------------------------------------
