@@ -91,6 +91,9 @@ PLEASE NOTE:
 // II. YOU DON'T NEED TO EDIT ANYTHING BELOW THIS LINE!
 // ----------------------------------------------------
 
+// Main Container: Set Font Family
+echo '<div style="font-family:monospace;">';
+
 // Title
 echo '<h1>Mass Database Modifier v'.VERSION.'</h1>';
 
@@ -241,3 +244,6 @@ else
 	&nbsp;If you are finished, please delete <span style="font-style:italic;">mdbm.php</span>
 	from the server.&nbsp;</span>';
 }
+
+// Close Main Container
+echo '</div>';
