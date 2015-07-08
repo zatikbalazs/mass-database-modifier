@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-define('VERSION', '0.2.4');
+define('VERSION', '0.2.5');
 /*
 =============================
 Mass Database Modifier (MDBM)
@@ -87,6 +87,9 @@ PLEASE NOTE:
 - Multiple statements should be separated by a (;)
 */
 
+// Show First "n" Characters of Database Names
+$dbname_max_length = 6;
+
 // ----------------------------------------------------
 // II. YOU DON'T NEED TO EDIT ANYTHING BELOW THIS LINE!
 // ----------------------------------------------------
@@ -155,6 +158,7 @@ foreach($result as $row)
 {
 	// Get Name of DB
 	$dbname = $row['Database'];
+	$dbname_short = mb_substr($dbname, 0, $dbname_max_length, 'utf-8').'...';
 
 	if (!in_array($dbname, $ignored))
 	{
@@ -168,7 +172,7 @@ foreach($result as $row)
 			try
 			{
 				$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-				echo '"'.$dbname.'" | Connection: OK';
+				echo '"'.$dbname_short.'" | Connection: OK';
 			}
 			catch (PDOException $e)
 			{
