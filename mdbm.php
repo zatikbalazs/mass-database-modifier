@@ -87,8 +87,9 @@ PLEASE NOTE:
 - Multiple statements should be separated by a (;)
 */
 
-// Show First "n" Characters of Database Names
+// Optional Settings for Database Listing
 $dbname_max_length = 6;
+$show_line_numbers = false;
 
 // ----------------------------------------------------
 // II. YOU DON'T NEED TO EDIT ANYTHING BELOW THIS LINE!
@@ -166,7 +167,10 @@ foreach($result as $row)
 		if (preg_match($regexp, $dbname))
 		{
 			++$total_db;
-			echo $total_db.'. ';
+			if ($show_line_numbers === true)
+			{
+				echo $total_db.'. ';
+			}
 
 			// Connect to Each Individual DB
 			try
