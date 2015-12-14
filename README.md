@@ -16,7 +16,7 @@ multiple databases all at once. It's a huge help and saves a lot of time.
 6. When finished, delete the file from the server.
 
 ## More Information
-MDBM is created by: Dr. Balazs Zatik  
+MDBM is created by: dr. Balazs Zatik  
 You can contact me at: zatikbalazs at gmail dot com
 
 This project is located at:  
