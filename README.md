@@ -1,7 +1,7 @@
 # Mass Database Modifier (MDBM)
 **Run SQL statements on multiple databases!**
 
-Mass Database Modifier (MDBM) is a very handy tool if you need to modify
+Mass Database Modifier (MDBM) is a very handy tool if you need to modify  
 multiple databases all at once. It's a huge help and saves a lot of time.
 
 ## Requirements
@@ -16,11 +16,10 @@ multiple databases all at once. It's a huge help and saves a lot of time.
 6. When finished, delete the file from the server.
 
 ## More Information
-MDBM is created by: Dr. Balazs Zatik
-
+MDBM is created by: Dr. Balazs Zatik  
 You can contact me at: zatikbalazs at gmail dot com
 
-This project is located at:
+This project is located at:  
 https://github.com/zatikbalazs/mass-database-modifier.git
 
 Feel free to share and contribute.
