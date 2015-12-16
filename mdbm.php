@@ -108,41 +108,31 @@ echo '<p>Help can be found in the source code of this file.<p>';
 echo '<h3>Testing Configuration:</h3>';
 
 // Establish Connection
-try
-{
+try {
 	$dbh = new PDO("mysql:host=$host", $user, $pass);
 	echo 'OK: Admin connection established!<br />';
-}
-catch (PDOException $e)
-{
-    echo 'Error: Admin connection could not be established!<br />
-    Please double check your host, username and password.<br />'
-    .$e->getMessage().'<br />';
-    die();
+} catch (PDOException $e) {
+  echo 'Error: Admin connection could not be established!<br />
+  Please double check your host, username and password.<br />'
+  .$e->getMessage().'<br />';
+  die();
 }
 
 // Get All Databases
 $result = $dbh->query('SHOW DATABASES');
-if ($result)
-{
+if ($result) {
 	echo 'OK: All Available Databases Fetched!<br />';
-}
-else
-{
+} else {
 	echo 'Error: Databases Could Not Be Fetched!<br />';
 	die();
 }
 
 // Your Statement(s)
 echo '<h3>Your Statement(s):</h3>';
-if (isset($stmt))
-{
-	if (trim($stmt) === '')
-	{
+if (isset($stmt)) {
+	if (trim($stmt) === '') {
 		echo '<span style="font-weight:bold;color:#A60000;">No statement!</span>';
-	}
-	else
-	{
+	} else {
 		echo '<span style="font-style:italic;">'.$stmt.'</span>';
 	}
 }
@@ -155,48 +145,37 @@ $total_db = 0;
 $total_err = 0;
 
 // Loop Through Databases
-foreach($result as $row)
-{
+foreach ($result as $row) {
 	// Get Name of DB
 	$dbname = $row['Database'];
 	$dbname_short = mb_substr($dbname, 0, $dbname_max_length, 'utf-8').'...';
 
-	if (!in_array($dbname, $ignored))
-	{
+	if (!in_array($dbname, $ignored)) {
 		// Match DB Names to Regular Expression
-		if (preg_match($regexp, $dbname))
-		{
+		if (preg_match($regexp, $dbname)) {
 			++$total_db;
-			if ($show_line_numbers === true)
-			{
+			if ($show_line_numbers === true) {
 				echo $total_db.'. ';
 			}
 
 			// Connect to Each Individual DB
-			try
-			{
+			try {
 				$dbh = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 				echo '"'.$dbname_short.'" | Connection: OK';
-			}
-			catch (PDOException $e)
-			{
-			    echo '"'.$dbname.'" | Connection: Error - '.$e->getMessage();
-			    ++$total_err;
-			    die();
+			} catch (PDOException $e) {
+		    echo '"'.$dbname.'" | Connection: Error - '.$e->getMessage();
+		    ++$total_err;
+		    die();
 			}
 
 			// Run Queries Only If Requested
-			if (isset($_GET['run']))
-			{
-				if (!$dbh->query($stmt))
-				{
+			if (isset($_GET['run'])) {
+				if (!$dbh->query($stmt)) {
 					$query_err = $dbh->errorInfo();
-				    echo ' | <span style="color:#FFFFFF;background-color:#A60000;">
-				    &nbsp;&gt;&gt; Query: Error - '.$query_err[2].'&nbsp;</span>';
-				    ++$total_err;
-				}
-				else
-				{
+			    echo ' | <span style="color:#FFFFFF;background-color:#A60000;">
+			    &nbsp;&gt;&gt; Query: Error - '.$query_err[2].'&nbsp;</span>';
+			    ++$total_err;
+				} else {
 					echo ' | <span style="color:#FFFFFF;background-color:#018100;">
 					&nbsp;&gt;&gt; Query: OK&nbsp;</span>';
 				}
@@ -207,8 +186,7 @@ foreach($result as $row)
 }
 
 // If No Databases Are Found
-if ($total_db === 0)
-{
+if ($total_db === 0) {
 	echo 'No databases found with the given regular expression: '.$regexp.'<br />';
 	echo 'Please check your list of ignored databases as well.';
 }
@@ -217,34 +195,25 @@ if ($total_db === 0)
 echo '<h3 id="summary">Summary:</h3>';
 
 // How Many Databases?
-if ($total_db === 0)
-{
+if ($total_db === 0) {
 	echo '<span style="font-weight:bold;color:#A60000;">No databases found.</span><br />';
-}
-else
-{
+} else {
 	echo $total_db.' databases.<br />';
 }
 
 // How Many Errors?
-if ($total_err === 0)
-{
+if ($total_err === 0) {
 	echo '<span style="font-weight:bold;color:#018100;">No errors found.</span>';
-}
-else
-{
+} else {
 	echo '<span style="font-weight:bold;color:#A60000;">'.$total_err.' errors found.</span>';
 }
 
 // Display Links
-if ($total_db > 0 && $total_err === 0 && !isset($_GET['run']))
-{
+if ($total_db > 0 && $total_err === 0 && !isset($_GET['run'])) {
 	echo '<br /><br />';
 	echo '<a href="mdbm.php?run#summary">Run Queries!</a>';
 	echo '<br /><br />';
-}
-else
-{
+} else {
 	echo '<br /><br />';
 	echo '<a href="mdbm.php">Go Back</a>';
 	echo '<br /><br />';
